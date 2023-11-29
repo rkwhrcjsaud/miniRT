@@ -6,7 +6,7 @@
 /*   By: jaehyji <jaehyji@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 14:14:10 by gibkim            #+#    #+#             */
-/*   Updated: 2023/11/28 17:51:42 by jaehyji          ###   ########.fr       */
+/*   Updated: 2023/11/29 14:11:55 by jaehyji          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	insert_sphere(t_data *data, char **word)
 		errno_error();
 	insert_coordinate(data, &temp->point, word[1]);
 	temp->radius = ft_atof(word[2]) / 2;
-	if (errno == ERANGE)
+	if (temp->radius == (double)INT_MAX + 1)
 		out_of_range_error();
 	if (!ft_strcmp("checkerboard", word[3]))
 		temp->disruption = 1;
@@ -73,10 +73,10 @@ void	insert_cylinder(t_data *data, char **word)
 	insert_vector(data, &temp->vector, word[2]);
 	temp->vector = vunit(temp->vector);
 	temp->radius = ft_atof(word[3]) / 2;
-	if (errno == ERANGE)
+	if (temp->radius == (double)INT_MAX + 1)
 		out_of_range_error();
 	temp->height = ft_atof(word[4]);
-	if (errno == ERANGE)
+	if (temp->height == (double)INT_MAX + 1)
 		out_of_range_error();
 	if (!ft_strcmp("checkerboard", word[5]))
 		temp->disruption = 1;
@@ -100,7 +100,11 @@ void	insert_cone(t_data *data, char **word)
 	insert_coordinate(data, &temp->point, word[1]);
 	insert_vector(data, &temp->vector, word[2]);
 	temp->radius = ft_atof(word[3]);
+	if (temp->radius == (double)INT_MAX + 1)
+		out_of_range_error();
 	temp->height = ft_atof(word[4]);
+	if (temp->height == (double)INT_MAX + 1)
+		out_of_range_error();
 	if (!ft_strcmp("checkerboard", word[5]))
 		temp->disruption = 1;
 	else
