@@ -6,7 +6,7 @@
 /*   By: gibkim <gibkim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 10:43:05 by gibkim            #+#    #+#             */
-/*   Updated: 2023/11/29 14:23:01 by gibkim           ###   ########.fr       */
+/*   Updated: 2023/11/29 15:07:36 by gibkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,10 +59,11 @@
 # define SPECULAR 30
 # define REFLECT 0.1
 # define REFLECT_MAX 3
-# define ATTENUATION 0.0002
+# define ATTENUATION 0.00005
 
 # define CHEKCKER_R 10
 # define CHEKCKER_PL 50
+# define CHEKCKER_Z 1
 # define CHEKCKER_CY 0.5
 # define CHEKCKER_CN 0.5
 

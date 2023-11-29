@@ -6,7 +6,7 @@
 /*   By: gibkim <gibkim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/24 08:30:36 by jaehyji           #+#    #+#             */
-/*   Updated: 2023/11/27 17:33:56 by gibkim           ###   ########.fr       */
+/*   Updated: 2023/11/29 15:05:42 by gibkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ int	uv_cylinder_mapping(t_cyl *cy, t_ray *ray)
 		|| vdot(cy->vector, ray->hit.nv) < -1 + EPSILON)
 		return (((int)(x / CHEKCKER_CY)
 			+ (int)(y / CHEKCKER_CY) + (x < 0) + (y < 0)) % 2);
-	if ((((int)theta + (int)z) + (z < 0)) % 2 == 0)
+	if ((((int)theta + (int)(z / CHEKCKER_Z)) + (z < 0)) % 2 == 0)
 		return (0);
 	else
 		return (1);
@@ -108,8 +108,6 @@ int	uv_cone_mapping(t_cone *cn, t_ray *ray)
 		|| vdot(cn->vector, ray->hit.nv) < -1 + EPSILON)
 		return (((int)(x / CHEKCKER_CN)
 			+ (int)(y / CHEKCKER_CN) + (x < 0) + (y < 0)) % 2);
-	if (((int)z + (int)(vdot(cn->vector, vminus(ray->inter, cn->point)))) % 2)
-		return (0);
-	else
-		return (1);
+	return (((int)z + (int)(vdot(cn->vector, vminus(ray->inter, cn->point))
+			/ CHEKCKER_Z)) % 2);
 }
