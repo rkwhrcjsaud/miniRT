@@ -6,7 +6,7 @@
 /*   By: gibkim <gibkim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 18:17:56 by jaehyji           #+#    #+#             */
-/*   Updated: 2023/11/29 13:54:00 by gibkim           ###   ########.fr       */
+/*   Updated: 2023/11/29 14:16:17 by gibkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ t_color	lambert(t_light *light, t_ray ray)
 		angle = 0;
 	ratio = light->ratio;
 	brightness = angle * ratio * (1.0 / (1.0 + (ATTENUATION
-					* vlength(vminus(light->point, ray.inter)))));
+					* pow(vlength(vminus(light->point, ray.inter)), 2))));
 	result.r = light->color.r * brightness;
 	if (result.r < 0)
 		result.r = 0;
