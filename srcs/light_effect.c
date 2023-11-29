@@ -6,7 +6,7 @@
 /*   By: gibkim <gibkim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/17 18:17:56 by jaehyji           #+#    #+#             */
-/*   Updated: 2023/11/28 20:21:21 by gibkim           ###   ########.fr       */
+/*   Updated: 2023/11/29 13:54:00 by gibkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,13 +63,13 @@ t_color	blinn_phong(t_light *light, t_ray ray)
 	angle = pow(angle, SPECULAR);
 	brightness = angle * light->ratio * (1.0 / (1.0 + (ATTENUATION
 					* pow(vlength(vminus(light->point, ray.inter)), 2))));
-	result.r = light->color.r * angle * light->ratio;
+	result.r = light->color.r * brightness;
 	if (result.r < 0)
 		result.r = 0;
-	result.g = light->color.g * angle * light->ratio;
+	result.g = light->color.g * brightness;
 	if (result.g < 0)
 		result.g = 0;
-	result.b = light->color.b * angle * light->ratio;
+	result.b = light->color.b * brightness;
 	if (result.b < 0)
 		result.b = 0;
 	return (result);

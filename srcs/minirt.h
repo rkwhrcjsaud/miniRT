@@ -6,7 +6,7 @@
 /*   By: gibkim <gibkim@student.42seoul.kr>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 10:43:05 by gibkim            #+#    #+#             */
-/*   Updated: 2023/11/28 20:20:13 by gibkim           ###   ########.fr       */
+/*   Updated: 2023/11/29 13:55:43 by gibkim           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,10 +56,10 @@
 # define INF 1000000000
 # define EPSILON 1e-10
 
-# define SPECULAR 50
+# define SPECULAR 30
 # define REFLECT 0.1
 # define REFLECT_MAX 3
-# define ATTENUATION 0.001
+# define ATTENUATION 0.0001
 
 # define CHEKCKER_R 10
 # define CHEKCKER_PL 50
